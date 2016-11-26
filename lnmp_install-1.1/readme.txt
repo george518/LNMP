@@ -12,13 +12,13 @@ install_ftp_version=0.0.0
 使用方法：
 
 1、解压 
-# unzip lnmp_install-1.0.zip
+# unzip lnmp_install-1.1.zip
 
 2、赋予权限
-# chmod -R 777 lnmp_install-1.0
+# chmod -R 777 lnmp_install-1.1
 
 3、进入并执行脚本
-# cd lnmp_install-1.0
+# cd lnmp_install-1.1
 # ./install.sh  
 
 4、安装yaf
@@ -30,7 +30,7 @@ cd ..
 ++++++++++++++++++++++++++++++++++++++++++++
 
  查看安装资料 可以看到mysql root密码和ftp www密码
- cat lnmp_install-1.0/account.log
+ cat lnmp_install-1.1/account.log
 
 ++++++++++++++++++++++++++++++++++++++++++++
 
