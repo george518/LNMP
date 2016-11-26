@@ -14,7 +14,7 @@ install_ftp_version=0.0.0
 1、解压 
 # unzip lnmp_install-1.1.zip
 
-2、赋予权限
+2、赋予权限 !!!!
 # chmod -R 777 lnmp_install-1.1
 
 3、进入并执行脚本
