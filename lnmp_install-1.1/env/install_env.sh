@@ -47,7 +47,6 @@ make install
 cd ..
 
 if [ ! -f libpng-1.2.50.tar.gz ];then
-	#wget http://soft.phpwind.me/web/libpng-1.2.8.tar.gz
     wget http://oss.aliyuncs.com/aliyunecs/onekey/libpng-1.2.50.tar.gz
 fi
 rm -rf libpng-1.2.50

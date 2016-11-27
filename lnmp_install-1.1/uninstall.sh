@@ -79,8 +79,8 @@ rm -rf /webroot/log/nginx
 echo "/webroot/log/httpd                delete ok!"
 rm -rf /webroot/log/httpd
 echo ""
-echo "/webroot/www/phpwind              delete ok!"
-rm -rf /webroot/www/phpwind
+echo "/webroot/www/defaults              delete ok!"
+rm -rf /webroot/www/defaults
 
 
 echo ""

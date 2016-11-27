@@ -5,7 +5,6 @@ export nginx_version=1.8.1
 export mysql_version=5.6.21
 export php_version=5.6.14
 
-export phpwind_version=8.7
 export phpmyadmin_version=4.1.8
 export vsftpd_version=2.3.2
 export sphinx_version=0.9.9
@@ -160,7 +159,7 @@ install_ftp_version=$(vsftpd -v 0> vsftpd_version && cat vsftpd_version |awk -F:
 echo "---------- vsftpd-$install_ftp_version  ok ----------" >> tmp.log
 
 ./res/install_soft.sh
-echo "---------- phpwind-$phpwind_version ok ----------" >> tmp.log
+echo "---------- default web ok ----------" >> tmp.log
 echo "---------- phpmyadmin-$phpmyadmin_version ok ----------" >> tmp.log
 echo "---------- web init ok ----------" >> tmp.log
 ####---- install software ----end####

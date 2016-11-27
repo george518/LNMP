@@ -20,7 +20,7 @@ fi
 mkdir -p /webroot
 mkdir -p /webroot/server
 mkdir -p /webroot/www
-mkdir -p /webroot/www/phpwind
+mkdir -p /webroot/www/default
 mkdir -p /webroot/log
 mkdir -p /webroot/log/php
 mkdir -p /webroot/log/mysql

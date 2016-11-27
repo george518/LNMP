@@ -3,7 +3,6 @@ centos 6.7 test ok
 nginx_version=1.8.1
 mysql_version=5.6.21
 php_version=5.6.14
-phpwind_version=8.7
 phpmyadmin_version=4.1.8
 vsftpd_version=2.3.2
 sphinx_version=0.9.9
