@@ -65,10 +65,7 @@ echo "/webroot/server/nginx             delete ok!"
 rm -rf /webroot/server/nginx
 echo "rm -rf /webroot/server/nginx-*    delete ok!"
 rm -rf /webroot/server/nginx-*
-echo "/webroot/server/httpd             delete ok!"
-rm -rf /webroot/server/httpd
-echo "/webroot/server/httpd-*           delete ok!"
-rm -rf /webroot/server/httpd-*
+
 echo ""
 echo "/webroot/log/php                  delete ok!"
 rm -rf /webroot/log/php
@@ -76,8 +73,7 @@ echo "/webroot/log/mysql                delete ok!"
 rm -rf /webroot/log/mysql
 echo "/webroot/log/nginx                delete ok!"
 rm -rf /webroot/log/nginx
-echo "/webroot/log/httpd                delete ok!"
-rm -rf /webroot/log/httpd
+
 echo ""
 echo "/webroot/www/defaults              delete ok!"
 rm -rf /webroot/www/defaults
@@ -93,8 +89,7 @@ echo "/etc/init.d/nginx          delete ok!"
 rm -f /etc/init.d/nginx
 echo "/etc/init.d/php-fpm        delete ok!"
 rm -r /etc/init.d/php-fpm
-echo "/etc/init.d/httpd          delete ok!"
-rm -f /etc/init.d/httpd
+
 
 echo ""
 ifrpm=$(cat /proc/version | grep -E "redhat|centos")
@@ -114,13 +109,12 @@ if [ "$ifrpm" != "" ];then
 	sed -i "/\/etc\/init\.d\/nginx.*/d" /etc/rc.d/rc.local
 	sed -i "/\/etc\/init\.d\/php-fpm.*/d" /etc/rc.d/rc.local
 	sed -i "/\/etc\/init\.d\/vsftpd.*/d" /etc/rc.d/rc.local
-	sed -i "/\/etc\/init\.d\/httpd.*/d" /etc/rc.d/rc.local
+	
 else
 	sed -i "/\/etc\/init\.d\/mysqld.*/d" /etc/rc.local
 	sed -i "/\/etc\/init\.d\/nginx.*/d" /etc/rc.local
 	sed -i "/\/etc\/init\.d\/php-fpm.*/d" /etc/rc.local
 	sed -i "/\/etc\/init\.d\/vsftpd.*/d" /etc/rc.local
-	sed -i "/\/etc\/init\.d\/httpd.*/d" /etc/rc.local
 fi
 
 echo ""
