@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #default
-cp ./index.php /webroot/www/default
-cd -
+cp ./res/index.php /webroot/www/default
 
 #phpmyadmin
 if [ ! -f phpmyadmin.zip ];then
