@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf nginx-1.8.1
+#rm -rf nginx-1.8.1
 if [ ! -f nginx-1.8.1.tar.gz ];then
   wget http://nginx.org/download/nginx-1.8.1.tar.gz
 fi

@@ -1,5 +1,6 @@
 #!/bin/bash
 # rm -rf php-7.2.0
+cd ../
 if [ ! -f php-7.2.0.tar.gz ];then
   wget http://mirrors.sohu.com/php/php-7.2.0.tar.gz
 fi

@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf php-5.6.14
+#rm -rf php-5.6.14
 if [ ! -f php-5.6.14.tar.gz ];then
   wget http://mirrors.sohu.com/php/php-5.6.14.tar.gz
 fi

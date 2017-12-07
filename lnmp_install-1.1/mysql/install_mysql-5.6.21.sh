@@ -9,7 +9,7 @@ else
 machine=i686
 fi
 if [ $machine == "x86_64" ];then
-  rm -rf mysql-5.6.21-linux-glibc2.5-x86_64
+  #rm -rf mysql-5.6.21-linux-glibc2.5-x86_64
   if [ ! -f mysql-5.6.21-linux-glibc2.5-x86_64.tar.gz ];then
 	 wget http://zy-res.oss-cn-hangzhou.aliyuncs.com/mysql/mysql-5.6.21-linux-glibc2.5-x86_64.tar.gz
   fi
