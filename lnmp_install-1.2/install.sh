@@ -15,6 +15,15 @@ export install_ftp_version=0.0.0
 web=nginx
 install_log=/webroot/website-info.log
 
+#新增PHP-7.2.0
+tmp=1
+read -p "Please select the php version of 5.6.21/7.2.0, input 1 or 2 : " tmp
+if [ "$tmp" == "1" ];then
+  php_version=5.6.21
+elif [ "$tmp" == "2" ];then
+  php_version=7.2.0
+fi
+
 echo "**********************************"
 echo "You will install the version :"
 echo "web    : $web"
