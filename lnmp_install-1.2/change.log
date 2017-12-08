@@ -1,0 +1,15 @@
+#edit by haodaquan from aliyun sh-1.4.1
+
+########## V1.0 edit by haodaquan 2016-04-24 ###########
+nginx_version=1.8.1
+mysql_version=5.6.21
+php_version=5.6.14
+phpmyadmin_version=4.1.8
+vsftpd_version=2.3.2
+sphinx_version=0.9.9
+install_ftp_version=0.0.0
+
+
+######### V1.1 edit by haodaquan 2016-04-26 ##########
+
+add yaf_install.sh

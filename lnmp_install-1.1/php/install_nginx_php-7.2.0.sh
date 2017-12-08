@@ -34,7 +34,6 @@ cd php-7.2.0
 --with-freetype-dir=/usr/local/freetype.2.1.10 \
 --with-jpeg-dir=/usr/local/jpeg.6 \
 --with-png-dir=/usr/local/libpng.1.2.50 \
-
 --enable-inline-optimization \
 --enable-shared \
 --enable-xml \
@@ -80,7 +79,7 @@ sed -i 's/;date.timezone =/date.timezone = PRC/g' /webroot/server/php7/etc/php.i
 sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=1/g' /webroot/server/php7/etc/php.ini
 sed -i 's/max_execution_time = 30/max_execution_time = 300/g' /webroot/server/php7/etc/php.ini
 #adjust php-fpm
-cp /webroot/server/php7/etc/php-fpm.conf.default /webroot/server/php7/etc/php-fpm.conf
+cp ./php-7.2.0/sapi/fpm/php-fpm.conf.in /webroot/server/php7/etc/php-fpm.conf
 sed -i 's,user = nobody,user=www,g'   /webroot/server/php7/etc/php-fpm.conf
 sed -i 's,group = nobody,group=www,g'   /webroot/server/php7/etc/php-fpm.conf
 sed -i 's,^pm.min_spare_servers = 1,pm.min_spare_servers = 5,g'   /webroot/server/php7/etc/php-fpm.conf
@@ -91,6 +90,6 @@ sed -i 's,;pid = run/php-fpm.pid,pid = run/php-fpm.pid,g'   /webroot/server/php7
 sed -i 's,;error_log = log/php-fpm.log,error_log = /webroot/log/php/php-fpm.log,g'   /webroot/server/php7/etc/php-fpm.conf
 sed -i 's,;slowlog = log/$pool.log.slow,slowlog = /webroot/log/php/\$pool.log.slow,g'   /webroot/server/php7/etc/php-fpm.conf
 #self start
-install -v -m755 ./php-7.2.0/sapi/fpm/init.d.php-fpm  /etc/init.d/php-fpm7
+install -v -m755 ./php-7.2.0/sapi/fpm/init.d.php-fpm.in  /etc/init.d/php-fpm7
 /etc/init.d/php-fpm7 start
 sleep 5
