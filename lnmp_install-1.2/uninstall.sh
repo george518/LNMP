@@ -75,8 +75,8 @@ echo "/webroot/log/nginx                delete ok!"
 rm -rf /webroot/log/nginx
 
 echo ""
-echo "/webroot/www/defaults              delete ok!"
-rm -rf /webroot/www/defaults
+echo "/webroot/www/default              delete ok!"
+rm -rf /webroot/www/default
 
 
 echo ""
