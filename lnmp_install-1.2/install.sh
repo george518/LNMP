@@ -151,6 +151,7 @@ echo "---------- ${mysql_dir} ok ----------" >> tmp.log
 if echo $web |grep "nginx" > /dev/null;then
 	./nginx/install_nginx-${nginx_version}.sh
 	echo "---------- ${web_dir} ok ----------" >> tmp.log
+  chmod +x ./php/install_nginx_php-${php_version}.sh
 	./php/install_nginx_php-${php_version}.sh
 	echo "---------- ${php_dir} ok ----------" >> tmp.log
 else
@@ -160,9 +161,10 @@ else
 	echo "---------- ${php_dir} ok ----------" >> tmp.log
 fi
 
-./php/install_php_extension.sh
-echo "---------- php extension ok ----------" >> tmp.log
-
+if [ echo $php_version | grep "5.6.14" ];then
+  ./php/install_php_extension.sh
+  echo "---------- php extension ok ----------" >> tmp.log
+fi
 ./ftp/install_${vsftpd_dir}.sh
 install_ftp_version=$(vsftpd -v 0> vsftpd_version && cat vsftpd_version |awk -F: '{print $2}'|awk '{print $2}' && rm -f vsftpd_version)
 echo "---------- vsftpd-$install_ftp_version  ok ----------" >> tmp.log
