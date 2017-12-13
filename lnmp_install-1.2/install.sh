@@ -210,7 +210,11 @@ fi
 
 ####---- mysql password initialization ----begin####
 echo "---------- rc init ok ----------" >> tmp.log
-/webroot/server/php/bin/php -f ./res/init_mysql.php
+if [ echo $php_version | grep "5.6.14" ];then
+  /webroot/server/php/bin/php -f ./res/init_mysql.php
+else
+  /webroot/server/php/bin/php -f ./res/init_mysql_php7.php
+fi
 echo "---------- mysql init ok ----------" >> tmp.log
 ####---- mysql password initialization ----end####
 
