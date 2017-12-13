@@ -69,9 +69,8 @@ else
 fi
 make install
 cd ..
+
 cp ./php-7.2.0/php.ini-production /webroot/server/php/etc/php.ini
-#adjust php.ini
-sed -i 's#; extension_dir = \"\.\/\"#extension_dir = "/webroot/server/php/lib/php/extensions/no-debug-non-zts-20121212/"#'  /webroot/server/php/etc/php.ini
 sed -i 's/post_max_size = 8M/post_max_size = 64M/g' /webroot/server/php/etc/php.ini
 sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 64M/g' /webroot/server/php/etc/php.ini
 sed -i 's/;date.timezone =/date.timezone = PRC/g' /webroot/server/php/etc/php.ini
@@ -79,17 +78,7 @@ sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=1/g' /webroot/server/php/etc/php.
 sed -i 's/max_execution_time = 30/max_execution_time = 300/g' /webroot/server/php/etc/php.ini
 #adjust php-fpm
 cp ./php-7.2.0/sapi/fpm/php-fpm.conf.in /webroot/server/php/etc/php-fpm.conf
-sed -i 's,user = nobody,user=www,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,group = nobody,group=www,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,include = @php_fpm_sysconfdir@/php-fpm.d/*.conf,include=/webroot/server/php/etc/php-fpm.d/*.conf,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,^pm.min_spare_servers = 1,pm.min_spare_servers = 5,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,^pm.max_spare_servers = 3,pm.max_spare_servers = 35,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,^pm.max_children = 5,pm.max_children = 100,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,^pm.start_servers = 2,pm.start_servers = 20,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,;pid = run/php-fpm.pid,pid = run/php-fpm.pid,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,;error_log = log/php-fpm.log,error_log = /webroot/log/php/php-fpm.log,g'   /webroot/server/php/etc/php-fpm.conf
-sed -i 's,;slowlog = log/$pool.log.slow,slowlog = /webroot/log/php/\$pool.log.slow,g'   /webroot/server/php/etc/php-fpm.conf
-
+sed -i 's,include=@php_fpm_sysconfdir@/php-fpm.d/\*.conf,include=/webroot/server/php/etc/php-fpm.d/\*.conf,g' /webroot/server/php/etc/php-fpm.conf
 mkdir -p /webroot/server/php/etc/php-fpm.d
 cp ./php-7.2.0/sapi/fpm/www.conf.in /webroot/server/php/etc/php-fpm.d/www.conf
 sed -i 's,user = @php_fpm_user@,user=www,g'   /webroot/server/php/etc/php-fpm.d/www.conf
@@ -97,5 +86,10 @@ sed -i 's,group = @php_fpm_group@,group=www,g'   /webroot/server/php/etc/php-fpm
 
 #self start
 install -v -m755 ./php-7.2.0/sapi/fpm/init.d.php-fpm.in  /etc/init.d/php-fpm
+sed -i 's,prefix=@prefix@,#prefix=@prefix@,g' /etc/init.d/php-fpm
+sed -i 's,exec_prefix=@exec_prefix@,#exec_prefix=@exec_prefix@,g' /etc/init.d/php-fpm
+sed -i 's,php_fpm_BIN=@sbindir@/php-fpm,php_fpm_BIN=/webroot/server/php/sbin/php-fpm,g' /etc/init.d/php-fpm
+sed -i 's,php_fpm_CONF=@sysconfdir@/php-fpm.conf,php_fpm_CONF=/webroot/server/php/etc/php-fpm.conf,g' /etc/init.d/php-fpm
+sed -i 's,php_fpm_PID=@localstatedir@/run/php-fpm.pid,php_fpm_PID=/webroot/server/php/php-fpm.pid,g' /etc/init.d/php-fpm
 /etc/init.d/php-fpm start
 sleep 5
