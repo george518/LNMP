@@ -161,7 +161,7 @@ else
 	echo "---------- ${php_dir} ok ----------" >> tmp.log
 fi
 
-if [ echo $php_version | grep "5.6.14" ];then
+if [ "$php_version" != "5.6.14" ];then
   ./php/install_php_extension.sh
   echo "---------- php extension ok ----------" >> tmp.log
 fi
@@ -210,7 +210,8 @@ fi
 
 ####---- mysql password initialization ----begin####
 echo "---------- rc init ok ----------" >> tmp.log
-if [ echo $php_version | grep "5.6.14" ];then
+
+if [ "$php_version" != "7.2.0" ];then
   /webroot/server/php/bin/php -f ./res/init_mysql.php
 else
   /webroot/server/php/bin/php -f ./res/init_mysql_php7.php
